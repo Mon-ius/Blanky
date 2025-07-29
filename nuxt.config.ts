@@ -26,7 +26,16 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    compressPublicAssets: true
+    compressPublicAssets: true,
+    prerender: {
+      crawlLinks: true,
+      routes: ['/']
+    }
+  },
+  
+  app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
+    buildAssetsDir: 'assets'
   },
 
   compatibilityDate: '2025-01-01',
