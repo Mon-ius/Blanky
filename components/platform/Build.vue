@@ -115,7 +115,12 @@
           </dl>
         </div>
         <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
-          <div id="gist-bots"></div>
+          <img
+            class="relative mx-auto"
+            width="600"
+            src="~/assets/images/api/integrations.js.svg"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -217,18 +222,6 @@
               alt="Binance"
             />
           </div>
-          <div>
-            <div class="font-bold">backtrader</div>
-          </div>
-          <!-- <div>
-            <img class="h-10" src="~/assets/images/bt.svg" alt="" />
-          </div>
-          <div>
-            <img class="h-8" src="~/assets/images/backtestingpy.svg" alt="" />
-          </div>
-          <div>
-            <img class="h-5" src="~/assets/images/ccxt.svg" alt="" />
-          </div> -->
         </div>
     </div>
     <div
@@ -264,18 +257,3 @@
     </div>
   </div>
 </template>
-<script setup>
-import { onMounted } from 'vue'
-import { useNuxtApp } from '#app'
-
-const { $postscribe } = useNuxtApp()
-
-onMounted(() => {
-  if ($postscribe) {
-    $postscribe(
-      '#gist-bots',
-      '<script src="https://gist.github.com/EmersonDove/8136960666605c504267e5417fbf49c2.js"><\/script>'
-    )
-  }
-})
-</script>

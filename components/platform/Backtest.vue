@@ -70,7 +70,6 @@
                     text-white
                   "
                 >
-                  <!-- Heroicon name: outline/globe-alt -->
                   <svg
                     class="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +110,6 @@
                     text-white
                   "
                 >
-                  <!-- Heroicon name: outline/scale -->
                   <svg
                     class="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +151,6 @@
                     text-white
                   "
                 >
-                  <!-- Heroicon name: outline/lightning-bolt -->
                   <svg
                     class="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -181,17 +178,10 @@
             </div>
           </dl>
         </div>
-
-        <div class="mt-10 relative lg:mt-0" aria-hidden="true">
+        <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
           <img
-            class="
-              relative
-              mx-auto
-              shadow-xl
-              pt-4
-              rounded-md
-              border border-gray-200
-            "
+            class="relative mx-auto"
+            width="600"
             src="~/assets/images/platform/upload.svg"
             alt=""
           />
@@ -239,7 +229,6 @@
                       text-white
                     "
                   >
-                    <!-- Heroicon name: outline/annotation -->
                     <svg
                       class="h-6 w-6"
                       xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +270,6 @@
                       text-white
                     "
                   >
-                    <!-- Heroicon name: outline/mail -->
                     <svg
                       class="h-6 w-6"
                       xmlns="http://www.w3.org/2000/svg"
@@ -445,7 +433,6 @@
                     text-white
                   "
                 >
-                  <!-- Heroicon name: outline/lightning-bolt -->
                   <svg
                     class="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
