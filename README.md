@@ -3,18 +3,13 @@
 ## Build Setup
 
 ```bash
-# install dependencies
-$ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+brew install corepack
+corepack enable && corepack prepare yarn@stable --activate
+yarn dlx @yarnpkg/doctor
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+yarn
+yarn dev
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
