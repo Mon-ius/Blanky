@@ -75,9 +75,17 @@
                 class="flex-1 hover:bg-gray-50 p-6 flex flex-col justify-between"
               >
                 <div class="flex-1">
-                  <p class="text-gray-400 text-sm">
-                    {{ processDate(post.date) }}
-                  </p>
+                  <div class="flex items-center justify-between">
+                    <p class="text-gray-400 text-sm">
+                      {{ processDate(post.date) }}
+                    </p>
+                    <span 
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium"
+                      :class="getCategoryClass(post.category)"
+                    >
+                      {{ post.category }}
+                    </span>
+                  </div>
                   <div class="block mt-8">
                     <p class="text-2xl font-semibold text-gray-900">
                       {{ post.title }}
@@ -189,5 +197,25 @@ useHead({
 // Helper functions
 const processDate = (str) => {
   return dayjs(str).format('LL')
+}
+
+const getCategoryClass = (category) => {
+  const categoryColors = {
+    'Coding': 'bg-blue-100 text-blue-800',
+    'Technology': 'bg-purple-100 text-purple-800',
+    'Business': 'bg-green-100 text-green-800',
+    'Trading': 'bg-yellow-100 text-yellow-800',
+    'Investing': 'bg-indigo-100 text-indigo-800',
+    'Integration': 'bg-pink-100 text-pink-800',
+    'Company': 'bg-gray-100 text-gray-800',
+    'Quant': 'bg-red-100 text-red-800',
+    'Backtesting': 'bg-orange-100 text-orange-800',
+    'Team': 'bg-teal-100 text-teal-800',
+    'Vision': 'bg-cyan-100 text-cyan-800',
+    'Trends': 'bg-emerald-100 text-emerald-800',
+    "Founder's Story": 'bg-rose-100 text-rose-800'
+  }
+  
+  return categoryColors[category] || 'bg-gray-100 text-gray-800'
 }
 </script>

@@ -55,6 +55,17 @@ export const useBlogPosts = () => {
         const filename = path.split('/').pop().replace('.md', '')
         const { frontmatter, content: markdownContent } = parseFrontmatter(content)
         
+        // Create excerpt from content (first 150 words)
+        const plainText = markdownContent
+          .replace(/#{1,6}\s/g, '') // Remove headers
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
+          .replace(/[*_`~]/g, '') // Remove formatting
+          .replace(/\n+/g, ' ') // Replace newlines with spaces
+          .trim()
+        
+        const words = plainText.split(' ')
+        const excerpt = words.slice(0, 150).join(' ') + (words.length > 150 ? '...' : '')
+        
         return {
           _path: `/blog/${filename}`,
           slug: filename,
@@ -62,6 +73,7 @@ export const useBlogPosts = () => {
             word.charAt(0).toUpperCase() + word.slice(1)
           ).join(' '),
           description: frontmatter.description || '',
+          excerpt: excerpt,
           date: frontmatter.date || new Date().toISOString(),
           authorName: frontmatter.authorName || 'Blankly Team',
           authorImage: frontmatter.authorImage || '/images/default-author.jpg',
@@ -111,6 +123,15 @@ export const useBlogPosts = () => {
       
       const { frontmatter, content: markdownContent } = parseFrontmatter(content)
       
+      // Calculate word count
+      const plainText = markdownContent
+        .replace(/#{1,6}\s/g, '') // Remove headers
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links
+        .replace(/[*_`~]/g, '') // Remove formatting
+        .replace(/\n+/g, ' ') // Replace newlines with spaces
+        .trim()
+      const wordCount = plainText.split(/\s+/).filter(word => word.length > 0).length
+      
       return {
         _path: `/blog/${slug}`,
         slug,
@@ -128,6 +149,7 @@ export const useBlogPosts = () => {
         image: frontmatter.image || '',
         content: markdownContent,
         html: marked(markdownContent),
+        wordCount: wordCount,
         ...frontmatter
       }
     } catch (error) {
