@@ -4,11 +4,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap'
   ],
-
   css: ['~/assets/css/main.css'],
-  
-  ssr: true,
-  
+  ssr: false,
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',
@@ -18,12 +15,9 @@ export default defineNuxtConfig({
       content: []
     }
   },
-  
-  // Inline CSS for better portability
   features: {
-    inlineStyles: true
+    inlineStyles: false
   },
-
   image: {
     format: ['webp', 'avif', 'jpeg'],
     screens: {
@@ -36,7 +30,6 @@ export default defineNuxtConfig({
       '2xl': 1536
     }
   },
-
   sitemap: {
     hostname: 'https://example.com',
     gzip: true,
@@ -58,14 +51,10 @@ export default defineNuxtConfig({
   },
   
   app: {
-    // Dynamic base URL detection
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
     buildAssetsDir: '_nuxt/'
   },
-  
-
   compatibilityDate: '2025-01-01',
-
   experimental: {
     payloadExtraction: false
   },

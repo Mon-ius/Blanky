@@ -22,7 +22,7 @@
     "nuxt": "^3.15.2",
     "postscribe": "^2.0.8",
     "sharp": "^0.33.5",
-    "vue": "^3.5.0"
+    "vue": "^3.5.18"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.5",
