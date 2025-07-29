@@ -368,7 +368,7 @@
   </div>
 </template>
 <script>
-import { logEvent } from 'firebase/analytics'
+// import { logEvent } from 'firebase/analytics'
 import WhiteNavBar from '@/components/WhiteNavBar.vue'
 import Problems from '@/components/api/Problems.vue'
 import Solution from '@/components/api/Solution.vue'
@@ -461,7 +461,7 @@ export default {
       if (this.emailStr.length > 0) {
         await updateWaitlist('connect', this.emailStr, this.$db)
         this.emailAdded = true
-        logEvent(this.$analytics, 'waitlist_signup')
+        // logEvent(this.$analytics, 'waitlist_signup')
         this.notified = true
       }
     },

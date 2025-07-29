@@ -197,7 +197,7 @@
   </div>
 </template>
 <script>
-import { logEvent } from 'firebase/analytics'
+// import { logEvent } from 'firebase/analytics'
 import WhiteNavBar from '@/components/WhiteNavBar.vue'
 import Build from '@/components/platform/Build.vue'
 import Backtest from '@/components/platform/Backtest.vue'
@@ -299,7 +299,7 @@ export default {
     async addEmail() {
       if (this.emailStr.length > 0) {
         await updateWaitlist('platform', this.emailStr, this.$db)
-        logEvent(this.$analytics, 'waitlist_signup')
+        // logEvent(this.$analytics, 'waitlist_signup')
         this.emailAdded = true
         this.notified = true
       }

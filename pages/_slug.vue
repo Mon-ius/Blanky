@@ -96,7 +96,10 @@
   </div>
 </template>
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+
+dayjs.extend(localizedFormat)
 import WhiteNavbar from '@/components/WhiteNavBar.vue'
 export default {
   components: {
@@ -104,7 +107,7 @@ export default {
   },
   async asyncData({ $content, params }) {
     const post = await $content(params.slug).fetch()
-    post.date = moment(post.date).format('LLL')
+    post.date = dayjs(post.date).format('LLL')
     return { post }
   },
   head() {
@@ -188,7 +191,7 @@ export default {
   },
   methods: {
     processDate(str) {
-      return moment(str).format('LL')
+      return dayjs(str).format('LL')
     },
   },
 }

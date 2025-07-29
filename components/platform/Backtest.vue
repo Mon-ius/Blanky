@@ -192,7 +192,7 @@
               rounded-md
               border border-gray-200
             "
-            src="~/assets/images/overview.png"
+            src="~/assets/images/platform/upload.svg"
             alt=""
           />
         </div>
@@ -478,7 +478,7 @@
           <img
             class="relative mx-auto"
             width="600"
-            src="~/assets/images/collaboration.png"
+            src="~/assets/images/platform/teamwork.svg"
             alt=""
           />
         </div>

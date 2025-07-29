@@ -1,13 +1,5 @@
 <template>
   <div>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "url": "https://blankly.finance",
-        "logo": "https://blankly.finance/logo.png"
-      }
-    </script>
     <header class="relative pb-40 bg-light-blue-800 sm:pb-40">
       <div class="absolute inset-0">
         <img
@@ -149,6 +141,20 @@ export default {
           content: 'Blankly Mission Accessible Quant Algorithmic Trading',
         },
       ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "https://blankly.finance",
+            "logo": "https://blankly.finance/logo.png"
+          })
+        }
+      ],
+      __dangerouslyDisableSanitizersByTagID: {
+        'ld-json': ['innerHTML']
+      }
     }
   },
 }

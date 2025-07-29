@@ -350,7 +350,7 @@
 </template>
 
 <script>
-import { logEvent } from 'firebase/analytics'
+// import { logEvent } from 'firebase/analytics'
 import { updateWaitlist } from '@/store/waitlist.js'
 
 const navigation = {
@@ -398,13 +398,13 @@ export default {
     async addEmail() {
       if (this.emailStr.length > 0) {
         await updateWaitlist('footer', this.emailStr, this.$db)
-        logEvent(this.$analytics, 'waitlist_signup')
+        // // logEvent(this.$analytics, 'waitlist_signup')
         this.emailAdded = true
         this.notified = true
       }
     },
     logDiscordEvent() {
-      logEvent(this.$analytics, 'join_discord')
+      // // logEvent(this.$analytics, 'join_discord')
     },
   },
 }

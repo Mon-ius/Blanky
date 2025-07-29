@@ -181,7 +181,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="mx-auto mt-5 max-w-7xl">
         <div
           class="
             flex flex-col
@@ -221,17 +220,16 @@
           <div>
             <div class="font-bold">backtrader</div>
           </div>
-          <div>
-            <img class="h-10" src="~/assets/images/bt.png" alt="" />
+          <!-- <div>
+            <img class="h-10" src="~/assets/images/bt.svg" alt="" />
           </div>
           <div>
-            <img class="h-8" src="~/assets/images/backtestingpy.png" alt="" />
+            <img class="h-8" src="~/assets/images/backtestingpy.svg" alt="" />
           </div>
           <div>
-            <img class="h-5" src="~/assets/images/ccxt.png" alt="" />
-          </div>
+            <img class="h-5" src="~/assets/images/ccxt.svg" alt="" />
+          </div> -->
         </div>
-      </div> -->
     </div>
     <div
       class="
@@ -266,14 +264,18 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  mounted() {
-    this.$postscribe(
+<script setup>
+import { onMounted } from 'vue'
+import { useNuxtApp } from '#app'
+
+const { $postscribe } = useNuxtApp()
+
+onMounted(() => {
+  if ($postscribe) {
+    $postscribe(
       '#gist-bots',
-      // eslint-disable-next-line no-useless-escape
       '<script src="https://gist.github.com/EmersonDove/8136960666605c504267e5417fbf49c2.js"><\/script>'
     )
-  },
-}
+  }
+})
 </script>

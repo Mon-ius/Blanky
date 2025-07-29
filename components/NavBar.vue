@@ -196,7 +196,7 @@
   </div>
 </template>
 <script>
-import { logEvent } from 'firebase/analytics'
+// import { logEvent } from 'firebase/analytics'
 const navigation = [
   {
     name: 'Home',
@@ -227,7 +227,7 @@ export default {
       this.isOpen = !this.isOpen
     },
     logDiscordEvent() {
-      logEvent(this.$analytics, 'join_discord')
+      // // logEvent(this.$analytics, 'join_discord')
     },
   },
 }

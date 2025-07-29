@@ -1,0 +1,53 @@
+export default defineNuxtConfig({
+  modules: [
+    '@nuxt/content',
+    '@nuxt/image',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/sitemap'
+  ],
+
+  css: ['~/assets/css/main.css'],
+
+  content: {
+    highlight: {
+      theme: 'github-light',
+      preload: ['js', 'vue', 'python', 'bash']
+    },
+    markdown: {
+      remarkPlugins: ['remark-math'],
+      rehypePlugins: ['rehype-katex']
+    }
+  },
+
+  image: {
+    format: ['webp', 'avif', 'jpeg'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536
+    }
+  },
+
+  sitemap: {
+    hostname: process.env.NUXT_PUBLIC_SITE_URL || 'https://example.com',
+    gzip: true
+  },
+
+  nitro: {
+    compressPublicAssets: true
+  },
+
+  compatibilityDate: '2025-01-01',
+
+  experimental: {
+    payloadExtraction: false
+  },
+
+  devtools: {
+    enabled: true
+  }
+})

@@ -117,7 +117,10 @@
 </template>
 
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+
+dayjs.extend(localizedFormat)
 
 export default {
   async asyncData({ $content }) {
@@ -189,7 +192,7 @@ export default {
   },
   methods: {
     processDate(str) {
-      return moment(str).format('LL')
+      return dayjs(str).format('LL')
     },
     navigate(slug) {
       this.$router.push('/' + slug)

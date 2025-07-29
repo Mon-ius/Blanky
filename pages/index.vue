@@ -176,12 +176,12 @@
             <img
               width="850"
               class="max-w-none mt-5 hidden md:block"
-              src="~/assets/images/image.png"
+              src="~/assets/images/platform/developer-team.svg"
             />
             <img
               width="850"
               class="md:hidden ml-5 mt-10"
-              src="~/assets/images/image.png"
+              src="~/assets/images/platform/developer-team.svg"
             />
           </div>
         </div>
@@ -209,7 +209,7 @@
 </template>
 
 <script>
-import { logEvent } from 'firebase/analytics'
+// import { logEvent } from 'firebase/analytics'
 import WhiteNavBar from '@/components/WhiteNavBar.vue'
 import Build from '@/components/platform/Build.vue'
 import Backtest from '@/components/platform/Backtest.vue'
@@ -311,7 +311,7 @@ export default {
     async addEmail() {
       if (this.emailStr.length > 0) {
         await updateWaitlist('platform', this.emailStr, this.$db)
-        logEvent(this.$analytics, 'waitlist_signup')
+        // logEvent(this.$analytics, 'waitlist_signup')
         this.emailAdded = true
         this.notified = true
       }

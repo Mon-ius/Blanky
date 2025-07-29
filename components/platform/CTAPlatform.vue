@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import { logEvent } from 'firebase/analytics'
+// import { logEvent } from 'firebase/analytics'
 import { updateWaitlist } from '@/store/waitlist.js'
 
 export default {
@@ -54,7 +54,7 @@ export default {
     async addEmail() {
       if (this.emailStr.length) {
         await updateWaitlist('platform', this.emailStr, this.$db)
-        logEvent(this.$analytics, 'waitlist_signup')
+        // logEvent(this.$analytics, 'waitlist_signup')
         this.emailAdded = true
         this.notified = true
       }
