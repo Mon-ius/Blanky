@@ -444,5 +444,6 @@
         <p id="cbe03e27-eb79-41ad-a697-d2852ba2a3b7" class=""></p>
       </div>
     </article>
+    <Footer />
   </div>
 </template>

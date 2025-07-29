@@ -115,47 +115,36 @@
     </main>
   </div>
 </template>
-<script>
-import AboutText from '@/components/about/AboutText.vue'
-import TeamMembers from '@/components/about/TeamMembers.vue'
-import Footer from '@/components/Footer.vue'
-export default {
-  components: {
-    Footer,
-    TeamMembers,
-    AboutText,
-  },
-  head() {
-    return {
-      title: 'About Us | Blankly',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "We're a tight-knit group on a mission to make quantitative finance more accessible to more people. Join the movement now.",
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: 'Blankly Mission Accessible Quant Algorithmic Trading',
-        },
-      ],
-      script: [
-        {
-          type: 'application/ld+json',
-          innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "url": "https://blankly.finance",
-            "logo": "https://blankly.finance/logo.png"
-          })
-        }
-      ],
-      __dangerouslyDisableSanitizersByTagID: {
-        'ld-json': ['innerHTML']
-      }
+
+<script setup>
+// Component imports are automatic in Nuxt 3
+
+// Set page meta
+useHead({
+  title: 'About Us | Blankly',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        "We're a tight-knit group on a mission to make quantitative finance more accessible to more people. Join the movement now.",
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content: 'Blankly Mission Accessible Quant Algorithmic Trading',
+    },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "https://blankly.finance",
+        "logo": "https://blankly.finance/logo.png"
+      })
     }
-  },
-}
+  ],
+})
 </script>

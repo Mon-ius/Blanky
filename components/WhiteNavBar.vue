@@ -223,7 +223,7 @@ const navigation = [
     external: false,
   },
   { name: 'About Us', href: '/about', external: false },
-  { name: 'Contact', href: '/about', external: false },
+  { name: 'Contact', href: '/contact-us', external: false },
   { name: 'Blog', href: '/blog', external: false },
   // { name: 'Contact Us', href: '/contact-us', external: false },
 ]

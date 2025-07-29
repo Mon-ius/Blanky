@@ -196,114 +196,93 @@
     <Footer />
   </div>
 </template>
-<script>
+<script setup>
 // import { logEvent } from 'firebase/analytics'
-import WhiteNavBar from '@/components/WhiteNavBar.vue'
-import Build from '@/components/platform/Build.vue'
-import Backtest from '@/components/platform/Backtest.vue'
-import Deploy from '@/components/platform/Deploy.vue'
-// import Stats from '@/components/platform/Stats.vue'
-import Footer from '@/components/Footer.vue'
-import CTAPlatform from '@/components/platform/CTAPlatform.vue'
 import { updateWaitlist } from '@/store/waitlist.js'
-import SuccessAlert from '@/components/SuccessAlert.vue'
-export default {
-  components: {
-    WhiteNavBar,
-    Build,
-    Backtest,
-    Deploy,
-    // Stats,
-    Footer,
-    CTAPlatform,
-    SuccessAlert,
-  },
-  data() {
-    return {
-      emailStr: '',
-      emailAdded: false,
-      notified: false,
-    }
-  },
-  head() {
-    return {
-      title: 'Build. Backtest. Deploy | Blankly Platform',
-      meta: [
-        {
-          hid: 'title',
-          name: 'title',
-          content: 'Build. Backtest. Deploy | Blankly Platform',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'Build. Backtest. Deploy | Blankly Platform',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'Build. Backtest. Deploy | Blankly Platform',
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          property: 'og:description',
-          content:
-            'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content:
-            'Backtest Cloud Deploy Quant Workflow Security Hedge Fund Enterprise',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Build. Backtest. Deploy | Blankly Platform',
-        },
-        {
-          hid: 'image',
-          name: 'image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          property: 'og:image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content:
-            'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
-        },
-      ],
-    }
-  },
-  methods: {
-    async addEmail() {
-      if (this.emailStr.length > 0) {
-        await updateWaitlist('platform', this.emailStr, this.$db)
-        // logEvent(this.$analytics, 'waitlist_signup')
-        this.emailAdded = true
-        this.notified = true
-      }
-    },
-  },
+
+const emailStr = ref('')
+const emailAdded = ref(false)
+const notified = ref(false)
+
+// Access Nuxt app instance for database
+const nuxtApp = useNuxtApp()
+
+const addEmail = async () => {
+  if (emailStr.value.length > 0) {
+    await updateWaitlist('platform', emailStr.value, nuxtApp.$db)
+    // logEvent(nuxtApp.$analytics, 'waitlist_signup')
+    emailAdded.value = true
+    notified.value = true
+  }
 }
+
+// Set page meta
+useHead({
+  title: 'Build. Backtest. Deploy | Blankly Platform',
+  meta: [
+    {
+      hid: 'title',
+      name: 'title',
+      content: 'Build. Backtest. Deploy | Blankly Platform',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      property: 'og:title',
+      content: 'Build. Backtest. Deploy | Blankly Platform',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      property: 'og:title',
+      content: 'Build. Backtest. Deploy | Blankly Platform',
+    },
+    {
+      hid: 'og:description',
+      name: 'og:description',
+      property: 'og:description',
+      content:
+        'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content:
+        'Backtest Cloud Deploy Quant Workflow Security Hedge Fund Enterprise',
+    },
+    {
+      hid: 'twitter:title',
+      name: 'twitter:title',
+      content: 'Build. Backtest. Deploy | Blankly Platform',
+    },
+    {
+      hid: 'image',
+      name: 'image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'og:image',
+      name: 'og:image',
+      property: 'og:image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'twitter:image',
+      name: 'twitter:image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content:
+        'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
+    },
+  ],
+})
 </script>

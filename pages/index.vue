@@ -49,133 +49,133 @@
                     mt-12
                     max-w-xl
                     mx-auto
-                    lg:mx-0 lg:text-left
-                    text-center text-xl text-gray-600
-                    font-medium
+                    text-xl text-gray-600
+                    sm:text-2xl
+                    md:mt-10
+                    md:max-w-3xl
                   "
                 >
-                  Go from trading idea, to paper trading, to live all in one
-                  place. Algotrading without the Headache 🚀
+                  Build in minutes. Deploy in seconds. Model and backtest
+                  10,000x faster.
                 </p>
-              </div>
-              <div
-                class="
-                  rounded-md
-                  bg-blue-500
-                  p-4
-                  max-w-lg
-                  lg:mx-0
-                  mx-auto
-                  mt-16
-                "
-              >
-                <div class="flex items-center">
-                  <div class="block flex-shrink-0">🎉</div>
-                  <div class="sm:ml-3 flex-1 items-center flex justify-between">
-                    <p
+                <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+                  <div class="rounded-md shadow">
+                    <a
+                      href="https://package.blankly.finance"
+                      target="_blank"
                       class="
-                        text-sm
-                        md:text-base
-                        ml-4
+                        w-full
+                        flex
+                        items-center
+                        justify-center
+                        px-8
+                        py-3
+                        border border-transparent
+                        text-base
                         font-medium
-                        sm:ml-4
+                        rounded-md
                         text-white
+                        bg-gray-900
+                        hover:bg-gray-700
+                        md:py-4 md:text-lg md:px-10
                       "
                     >
-                      We're going completely open source!
-                    </p>
-                    <p>
-                      <a
-                        href="https://github.com/blankly-finance"
+                      Open Source Package
+                    </a>
+                  </div>
+                  <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                    <a
+                      href="https://app.blankly.finance/auth/register"
+                      target="_blank"
+                      class="
+                        w-full
+                        flex
+                        items-center
+                        justify-center
+                        px-8
+                        py-3
+                        border border-transparent
+                        text-base
+                        font-medium
+                        rounded-md
+                        text-gray-900
+                        bg-white
+                        hover:bg-gray-50
+                        md:py-4 md:text-lg md:px-10
+                      "
+                    >
+                      <span aria-hidden="true">Deploy for Free →</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="mt-8 pb-20 sm:pb-0">
+                  <SuccessAlert
+                    v-if="notified"
+                    :text="`${emailStr} was added to the waitlist`"
+                    @close="notified = false"
+                  />
+                  <div
+                    v-if="!emailAdded"
+                    class="flex justify-center lg:justify-start"
+                  >
+                    <label for="email" class="sr-only">Email</label>
+                    <input
+                      id="email"
+                      v-model="emailStr"
+                      type="email"
+                      autocomplete="email"
+                      required
+                      class="
+                        w-full
+                        px-5
+                        py-3
+                        placeholder-gray-500
+                        focus:ring-gray-500 focus:border-gray-500
+                        sm:max-w-xs
+                        border-gray-300
+                        rounded-md
+                      "
+                      placeholder="Enter your email"
+                    />
+                    <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                      <button
+                        type="submit"
                         class="
-                          whitespace-nowrap
-                          block
+                          w-full
+                          flex
+                          items-center
+                          justify-center
+                          px-5
+                          py-3
+                          border border-transparent
+                          text-base
                           font-medium
-                          text-sm
-                          sm:text-base
+                          rounded-md
                           text-white
-                          hover:text-gray-200
+                          bg-gray-900
+                          hover:bg-gray-700
+                          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500
                         "
-                        >See the repo <span aria-hidden="true">&rarr;</span></a
+                        @click="addEmail()"
                       >
+                        Join the Waitlist
+                      </button>
+                    </div>
+                  </div>
+                  <div v-else class="flex justify-center lg:justify-start">
+                    <p class="mt-3 text-sm text-green-600 sm:mt-4">
+                      <strong>{{ emailStr }}</strong> was added to the
+                      waitlist.
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col md:flex-row mt-5 md:space-x-4 max-w-lg">
-                <a
-                  href="https://discord.gg/xJAjGEAXNS"
-                  target="_blank"
-                  class="
-                    inline-flex
-                    items-center
-                    px-4
-                    py-2
-                    border border-transparent
-                    text-base
-                    font-bold
-                    rounded
-                    text-white
-                    justify-center
-                    bg-indigo-400
-                    hover:bg-indigo-500
-                  "
-                  @click="logDiscordEvent"
-                >
-                  Join Our Discord
-                  <img
-                    class="h-4 ml-4"
-                    src="~/assets/images/logos/discord.svg"
-                    alt="Discord"
-                  />
-                </a>
-                <a
-                  href="https://docs.blankly.finance/getting-started/tutorial"
-                  class="
-                    block
-                    mt-3
-                    md:mt-0
-                    rounded-md
-                    flex-1
-                    border border-transparent
-                    px-5
-                    py-3
-                    bg-gray-900
-                    text-base text-center
-                    font-medium
-                    text-white
-                    shadow-xl
-                    hover:bg-black
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-gray-500
-                    focus:ring-offset-2
-                    sm:px-10
-                  "
-                >
-                  Download the package<span aria-hidden="true" class="ml-1"
-                    >&rarr;</span
-                  >
-                </a>
-              </div>
-              <SuccessAlert
-                v-if="emailAdded && notified"
-                message="You Have Successfully Joined Waitlist 🎉. Welcome to Blankly 🚀"
-                @dismiss="notified = false"
-              />
-              <div class="mt-8 max-w-lg flex items-start">
-                <h1 class="text-sm text-gray-500 w-full">
-                  Blankly follows industry standards:
-                  <span class="font-semibold">self host or host on premise</span
-                  >. No middlemen to slow your alpha.
-                </h1>
-              </div>
             </div>
           </div>
-          <div class="text-left -ml-12 mt-5">
+          <div class="lg:m-0 lg:relative">
             <img
               width="850"
-              class="max-w-none mt-5 hidden md:block"
+              class="hidden md:block ml-5 mt-10"
               src="~/assets/images/platform/developer-team.svg"
             />
             <img
@@ -194,13 +194,13 @@
           Discover The Blankly Approach
         </h1>
       </div>
-      <Build />
+      <PlatformBuild />
       <hr class="max-w-3xl mx-auto py-10 mt-12" />
-      <Backtest />
+      <PlatformBacktest />
       <hr class="max-w-3xl mx-auto py-10 mt-12" />
-      <Deploy />
+      <PlatformDeploy />
       <hr class="max-w-3xl mx-auto pt-20 mt-12" />
-      <CTAPlatform />
+      <PlatformCTAPlatform />
       <div class="mb-20"></div>
     </div>
     <!-- <Stats /> -->
@@ -208,117 +208,95 @@
   </div>
 </template>
 
-<script>
-// import { logEvent } from 'firebase/analytics'
-import WhiteNavBar from '@/components/WhiteNavBar.vue'
-import Build from '@/components/platform/Build.vue'
-import Backtest from '@/components/platform/Backtest.vue'
-import Deploy from '@/components/platform/Deploy.vue'
-// import Stats from '@/components/platform/Stats.vue'
-import Footer from '@/components/Footer.vue'
-import CTAPlatform from '@/components/platform/CTAPlatform.vue'
+<script setup>
+import { ref } from 'vue'
 import { updateWaitlist } from '@/store/waitlist.js'
-import SuccessAlert from '@/components/SuccessAlert.vue'
-export default {
-  components: {
-    WhiteNavBar,
-    Build,
-    Backtest,
-    Deploy,
-    // Stats,
-    Footer,
-    CTAPlatform,
-    SuccessAlert,
-  },
-  data() {
-    return {
-      emailStr: '',
-      emailAdded: false,
-      notified: false,
-    }
-  },
-  head() {
-    return {
-      title: 'Blankly - Build & Deploy Trading Algorithms Faster',
-      meta: [
-        {
-          hid: 'title',
-          name: 'title',
-          content: 'Blankly - Build & Deploy Trading Algorithms Faster',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'Blankly - Build & Deploy Trading Algorithms Faster',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'Blankly - Build & Deploy Trading Algorithms Faster',
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          property: 'og:description',
-          content:
-            'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content:
-            'Backtest Cloud Deploy Quant Workflow Security Hedge Fund Enterprise',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Blankly - Build & Deploy Trading Algorithms Faster',
-        },
-        {
-          hid: 'image',
-          name: 'image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          property: 'og:image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content:
-            'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
-        },
-      ],
-    }
-  },
-  methods: {
-    async addEmail() {
-      if (this.emailStr.length > 0) {
-        await updateWaitlist('platform', this.emailStr, this.$db)
-        // logEvent(this.$analytics, 'waitlist_signup')
-        this.emailAdded = true
-        this.notified = true
-      }
+
+// Component imports are automatic in Nuxt 3 with auto-imports
+
+// Reactive data
+const emailStr = ref('')
+const emailAdded = ref(false)
+const notified = ref(false)
+
+// Use Nuxt 3 composables
+const { $db } = useNuxtApp()
+
+// Set page meta
+useHead({
+  title: 'Blankly - Build & Deploy Trading Algorithms Faster',
+  meta: [
+    {
+      hid: 'title',
+      name: 'title',
+      content: 'Blankly - Build & Deploy Trading Algorithms Faster',
     },
-  },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      property: 'og:title',
+      content: 'Blankly - Build & Deploy Trading Algorithms Faster',
+    },
+    {
+      hid: 'og:description',
+      name: 'og:description',
+      property: 'og:description',
+      content:
+        'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content:
+        'Backtest Cloud Deploy Quant Workflow Security Hedge Fund Enterprise',
+    },
+    {
+      hid: 'twitter:title',
+      name: 'twitter:title',
+      content: 'Blankly - Build & Deploy Trading Algorithms Faster',
+    },
+    {
+      hid: 'image',
+      name: 'image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'og:image',
+      name: 'og:image',
+      property: 'og:image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'twitter:image',
+      name: 'twitter:image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content:
+        'Build in minutes. Deploy in seconds. Quant workflow reimagined. Built by developers for developers 🚀',
+    },
+  ],
+})
+
+// Methods
+const addEmail = async () => {
+  if (emailStr.value.length > 0) {
+    await updateWaitlist('platform', emailStr.value, $db)
+    // logEvent(nuxtApp.$analytics, 'waitlist_signup')
+    emailAdded.value = true
+    notified.value = true
+  }
 }
 </script>
+
 <style>
 .slider-wrapper {
   display: flex;

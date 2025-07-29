@@ -375,8 +375,8 @@ const navigation = {
     { name: 'Terms & Conditions', href: '/terms' },
   ],
   company: [
-    { name: 'About', href: 'https://blankly.finance/about' },
-    { name: 'Blog', href: 'https://blankly.finance/blog' },
+    { name: 'About', href: '/about' },
+    { name: 'Blog', href: '/blog' },
     {
       name: 'Jobs',
       href: 'https://blankly.notion.site/Blankly-is-Hiring-8c285b9b0a9348cab67953fd7a7321fc',

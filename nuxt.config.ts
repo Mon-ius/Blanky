@@ -1,23 +1,11 @@
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/content',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap'
   ],
 
   css: ['~/assets/css/main.css'],
-
-  content: {
-    highlight: {
-      theme: 'github-light',
-      preload: ['js', 'vue', 'python', 'bash']
-    },
-    markdown: {
-      remarkPlugins: ['remark-math'],
-      rehypePlugins: ['rehype-katex']
-    }
-  },
 
   image: {
     format: ['webp', 'avif', 'jpeg'],

@@ -125,51 +125,42 @@
     </header>
   </div>
 </template>
-<script>
+<script setup>
 import { updateWaitlist, addChallenge } from '@/store/waitlist.js'
 
-import SuccessAlert from '@/components/SuccessAlert.vue'
+const emailStr = ref('')
+const emailAdded = ref(false)
+const notified = ref(false)
 
-export default {
-  components: {
-    SuccessAlert,
-  },
-  data() {
-    return {
-      emailStr: '',
-      emailAdded: false,
-      notified: false,
-    }
-  },
-  head() {
-    return {
-      title: 'The Blankly Challenge',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Want to join the team? It's simple and straightforward: do the challenge within 3 hours, submit your code, and get an interview.",
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content:
-            'Blankly Mission Accessible Quant Challenge Algorithmic Trading',
-        },
-      ],
-    }
-  },
-  methods: {
-    async addEmail() {
-      if (this.emailStr.length > 0) {
-        await addChallenge(this.emailStr, this.$db)
-        await updateWaitlist('challenge', this.emailStr, this.$db)
-        this.emailAdded = true
-        this.notified = true
-        window.open('https://forms.gle/Jo3CK9SCkMywqkq6A', '_blank').focus()
-      }
-    },
-  },
+// Access Nuxt app instance for database
+const nuxtApp = useNuxtApp()
+
+const addEmail = async () => {
+  if (emailStr.value.length > 0) {
+    await addChallenge(emailStr.value, nuxtApp.$db)
+    await updateWaitlist('challenge', emailStr.value, nuxtApp.$db)
+    emailAdded.value = true
+    notified.value = true
+    window.open('https://forms.gle/Jo3CK9SCkMywqkq6A', '_blank').focus()
+  }
 }
+
+// Set page meta
+useHead({
+  title: 'The Blankly Challenge',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        "Want to join the team? It's simple and straightforward: do the challenge within 3 hours, submit your code, and get an interview.",
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content:
+        'Blankly Mission Accessible Quant Challenge Algorithmic Trading',
+    },
+  ],
+})
 </script>

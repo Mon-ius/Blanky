@@ -264,9 +264,7 @@
   </div>
 </template>
 
-<script>
-import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
+<script setup>
 import { updateWaitlist } from '@/store/waitlist.js'
 
 const contactDetails = [
@@ -291,6 +289,7 @@ const contactDetails = [
     telephone: '+1 (555) 123-4567',
   },
 ]
+
 const faqs = [
   {
     id: 1,
@@ -325,41 +324,31 @@ const faqs = [
   // More questions...
 ]
 
-export default {
-  components: {
-    NavBar,
-    Footer,
-  },
-  data() {
-    return {
-      contactDetails,
-      faqs,
-      emailStr: '',
-      emailAdded: false,
-      notified: false,
-    }
-  },
-  head() {
-    return {
-      title: 'Contact Us | Blankly',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Reach out to us! We'd love to hear your feedback and how we can continue to improve Blankly",
-        },
-      ],
-    }
-  },
-  methods: {
-    async addEmail() {
-      if (this.emailStr.length > 0) {
-        await updateWaitlist('contact-us', this.emailStr, this.$db)
-        this.emailAdded = true
-        this.notified = true
-      }
-    },
-  },
+const emailStr = ref('')
+const emailAdded = ref(false)
+const notified = ref(false)
+
+// Access Nuxt app instance for database
+const nuxtApp = useNuxtApp()
+
+const addEmail = async () => {
+  if (emailStr.value.length > 0) {
+    await updateWaitlist('contact-us', emailStr.value, nuxtApp.$db)
+    emailAdded.value = true
+    notified.value = true
+  }
 }
+
+// Set page meta
+useHead({
+  title: 'Contact Us | Blankly',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        "Reach out to us! We'd love to hear your feedback and how we can continue to improve Blankly",
+    },
+  ],
+})
 </script>

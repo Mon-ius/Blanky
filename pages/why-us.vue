@@ -167,7 +167,7 @@
                 recommendations for what might work better!
               </p>
             </div>
-            <ComparisonTable />
+            <PlatformComparisonTable />
             <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
               <h3>I’m looking for no-code model development</h3>
               <p>
@@ -232,91 +232,80 @@
         <div class="py-8 mb-8 max-w-6xl mx-auto">
           <hr />
         </div>
-        <CTAPlatform />
+        <PlatformCTAPlatform />
       </div>
       <Footer />
     </main>
   </div>
 </template>
-<script>
-import ComparisonTable from '@/components/platform/ComparisonTable'
-import CTAPlatform from '@/components/platform/CTAPlatform'
-import Footer from '@/components/Footer'
-export default {
-  components: {
-    CTAPlatform,
-    ComparisonTable,
-    Footer,
-  },
-  head() {
-    return {
-      title: 'So Why Blankly? | Blankly Platform',
-      meta: [
-        {
-          hid: 'title',
-          name: 'title',
-          content: 'So Why Blankly? | Blankly Platform',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'So Why Blankly? | Blankly Platform',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'So Why Blankly? | Blankly Platform',
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          property: 'og:description',
-          content:
-            'See how our Blankly Platform compares to others on the market',
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'See how our Blankly Platform compares to others on the market',
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content:
-            'Backtest Cloud Deploy Quant Workflow Security Hedge Fund Enterprise',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'So Why Blankly? | Blankly Platform',
-        },
-        {
-          hid: 'image',
-          name: 'image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          property: 'og:image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: 'https://blankly.finance/preview.png',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content:
-            'See how our Blankly Platform compares to others on the market',
-        },
-      ],
-    }
-  },
-}
+<script setup>
+// Set page meta
+useHead({
+  title: 'So Why Blankly? | Blankly Platform',
+  meta: [
+    {
+      hid: 'title',
+      name: 'title',
+      content: 'So Why Blankly? | Blankly Platform',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      property: 'og:title',
+      content: 'So Why Blankly? | Blankly Platform',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      property: 'og:title',
+      content: 'So Why Blankly? | Blankly Platform',
+    },
+    {
+      hid: 'og:description',
+      name: 'og:description',
+      property: 'og:description',
+      content:
+        'See how our Blankly Platform compares to others on the market',
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'See how our Blankly Platform compares to others on the market',
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content:
+        'Backtest Cloud Deploy Quant Workflow Security Hedge Fund Enterprise',
+    },
+    {
+      hid: 'twitter:title',
+      name: 'twitter:title',
+      content: 'So Why Blankly? | Blankly Platform',
+    },
+    {
+      hid: 'image',
+      name: 'image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'og:image',
+      name: 'og:image',
+      property: 'og:image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'twitter:image',
+      name: 'twitter:image',
+      content: 'https://blankly.finance/preview.png',
+    },
+    {
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content:
+        'See how our Blankly Platform compares to others on the market',
+    },
+  ],
+})
 </script>

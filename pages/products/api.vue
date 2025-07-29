@@ -32,7 +32,7 @@
               "
             >
               <span class="block text-gray-900">One API for your </span>
-              <VueTypedJs
+              <!-- <VueTypedJs
                 :strings="['brokerages', 'accounts', 'exchanges']"
                 :loop="true"
                 :type-speed="50"
@@ -43,7 +43,8 @@
                   style="min-height: 100px"
                   class="typing mx-auto block min-h-5 text-green-300"
                 ></span>
-              </VueTypedJs>
+              </VueTypedJs> -->
+              <span class="mx-auto block text-green-300">brokerages</span>
             </span>
           </h1>
           <p
@@ -367,104 +368,87 @@
     <Footer />
   </div>
 </template>
-<script>
+<script setup>
 // import { logEvent } from 'firebase/analytics'
-import WhiteNavBar from '@/components/WhiteNavBar.vue'
-import Problems from '@/components/api/Problems.vue'
-import Solution from '@/components/api/Solution.vue'
-import { VueTypedJs } from 'vue-typed-js'
-import Footer from '@/components/Footer.vue'
-import SuccessAlert from '@/components/SuccessAlert.vue'
+// import VueTypedJs from 'vue3-typed-js'
 import { updateWaitlist } from '@/store/waitlist.js'
 
-export default {
-  components: {
-    WhiteNavBar,
-    Problems,
-    Solution,
-    Footer,
-    VueTypedJs,
-    SuccessAlert,
-  },
-  data() {
-    return {
-      emailStr: '',
-      emailAdded: false,
-      notified: false,
-    }
-  },
-  head() {
-    return {
-      title: 'Blankly Connect | One API for Trading',
-      meta: [
-        {
-          hid: 'title',
-          name: 'title',
-          content: 'Blankly Connect | One API for Trading',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          content: 'Blankly Connect | One API for Trading',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Blankly Connect | One API for Trading',
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Blankly is the single source to connect, unify, and trade across all exchanges. One API to rule them all 👑.',
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          property: 'og:description',
-          content:
-            'Blankly is the single source to connect, unify, and trade across all exchanges. One API to rule them all 👑.',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content:
-            'Blankly is the single source to connect, unify, and trade across all exchanges. One API to rule them all 👑.',
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content:
-            'API Unification Trading Exchanges Brokerages Wallets Unify Transfer',
-        },
-        {
-          hid: 'image',
-          name: 'image',
-          content: 'https://blankly.finance/connect.png',
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          property: 'og:image',
-          content: 'https://blankly.finance/connect.png',
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: 'https://blankly.finance/connect.png',
-        },
-      ],
-    }
-  },
-  methods: {
-    async addEmail() {
-      if (this.emailStr.length > 0) {
-        await updateWaitlist('connect', this.emailStr, this.$db)
-        this.emailAdded = true
-        // logEvent(this.$analytics, 'waitlist_signup')
-        this.notified = true
-      }
-    },
-  },
+const emailStr = ref('')
+const emailAdded = ref(false)
+const notified = ref(false)
+
+// Access Nuxt app instance for database
+const nuxtApp = useNuxtApp()
+
+const addEmail = async () => {
+  if (emailStr.value.length > 0) {
+    await updateWaitlist('connect', emailStr.value, nuxtApp.$db)
+    emailAdded.value = true
+    // logEvent(nuxtApp.$analytics, 'waitlist_signup')
+    notified.value = true
+  }
 }
+
+// Set page meta
+useHead({
+  title: 'Blankly Connect | One API for Trading',
+  meta: [
+    {
+      hid: 'title',
+      name: 'title',
+      content: 'Blankly Connect | One API for Trading',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      content: 'Blankly Connect | One API for Trading',
+    },
+    {
+      hid: 'twitter:title',
+      name: 'twitter:title',
+      content: 'Blankly Connect | One API for Trading',
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Blankly is the single source to connect, unify, and trade across all exchanges. One API to rule them all 👑.',
+    },
+    {
+      hid: 'og:description',
+      name: 'og:description',
+      property: 'og:description',
+      content:
+        'Blankly is the single source to connect, unify, and trade across all exchanges. One API to rule them all 👑.',
+    },
+    {
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content:
+        'Blankly is the single source to connect, unify, and trade across all exchanges. One API to rule them all 👑.',
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content:
+        'API Unification Trading Exchanges Brokerages Wallets Unify Transfer',
+    },
+    {
+      hid: 'image',
+      name: 'image',
+      content: 'https://blankly.finance/connect.png',
+    },
+    {
+      hid: 'og:image',
+      name: 'og:image',
+      property: 'og:image',
+      content: 'https://blankly.finance/connect.png',
+    },
+    {
+      hid: 'twitter:image',
+      name: 'twitter:image',
+      content: 'https://blankly.finance/connect.png',
+    },
+  ],
+})
 </script>

@@ -640,14 +640,13 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   BookmarkAltIcon,
   BookOpenIcon,
   RssIcon,
   ViewListIcon,
 } from '@heroicons/vue/outline'
-import Footer from '@/components/Footer.vue'
 
 const links = [
   {
@@ -879,18 +878,5 @@ const faqs = [
   // More questions...
 ]
 
-export default {
-  components: {
-    Footer,
-  },
-  data() {
-    return {
-      links,
-      hostedPricing,
-      selfHostedPricing,
-      faqs,
-      activeTab: 'hosted',
-    }
-  },
-}
+const activeTab = ref('hosted')
 </script>

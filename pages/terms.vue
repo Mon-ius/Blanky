@@ -1039,5 +1039,6 @@
         </p>
       </div>
     </article>
+    <Footer />
   </div>
 </template>
