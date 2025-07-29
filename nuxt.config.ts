@@ -13,7 +13,15 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',
     exposeConfig: false,
-    viewer: false
+    viewer: false,
+    config: {
+      content: []
+    }
+  },
+  
+  // Inline CSS for better portability
+  features: {
+    inlineStyles: true
   },
 
   image: {
@@ -46,9 +54,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ['/'],
       failOnError: false
-    },
-    // Inline styles for better portability
-    inlineStyles: true
+    }
   },
   
   app: {
@@ -57,18 +63,6 @@ export default defineNuxtConfig({
     buildAssetsDir: '_nuxt/'
   },
   
-  // Force CSS extraction
-  build: {
-    extractCSS: true
-  },
-  
-  // Ensure proper CSS handling
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
 
   compatibilityDate: '2025-01-01',
 
