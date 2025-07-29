@@ -6,6 +6,15 @@ export default defineNuxtConfig({
   ],
 
   css: ['~/assets/css/main.css'],
+  
+  ssr: true,
+  
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
+    configPath: 'tailwind.config.ts',
+    exposeConfig: false,
+    viewer: false
+  },
 
   image: {
     format: ['webp', 'avif', 'jpeg'],
@@ -21,21 +30,44 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    hostname: process.env.NUXT_PUBLIC_SITE_URL || 'https://example.com',
-    gzip: true
+    hostname: 'https://example.com',
+    gzip: true,
+    exclude: ['/__sitemap__/**']
+  },
+  
+  site: {
+    url: 'https://example.com',
+    name: 'Blankly'
   },
 
   nitro: {
     compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
-      routes: ['/']
-    }
+      routes: ['/'],
+      failOnError: false
+    },
+    // Inline styles for better portability
+    inlineStyles: true
   },
   
   app: {
+    // Dynamic base URL detection
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
-    buildAssetsDir: 'assets'
+    buildAssetsDir: '_nuxt/'
+  },
+  
+  // Force CSS extraction
+  build: {
+    extractCSS: true
+  },
+  
+  // Ensure proper CSS handling
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 
   compatibilityDate: '2025-01-01',
