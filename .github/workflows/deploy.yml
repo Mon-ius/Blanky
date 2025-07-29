@@ -31,9 +31,10 @@ jobs:
         with:
           node-version: "latest"
       - uses: borales/actions-yarn@v4
+        with:
+          cmd: build
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - run: yarn && yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
