@@ -30,10 +30,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "latest"
-      - uses: borales/actions-yarn@v4
+      - uses: borales/actions-yarn@v5
         with:
           cmd: install
-      - uses: borales/actions-yarn@v4
+      - uses: borales/actions-yarn@v5
         with:
           cmd: build
       - name: Setup Pages
